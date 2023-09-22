@@ -1,0 +1,21 @@
+/**
+ * Author: Berenice Daly
+ *         bdaly5@unl.edu
+ * Date: 9/20/2023
+ *
+ * This file contains the prototypes and documentation for the colorUtils.c functions.
+ * These functions convert between the RGB and CMYK models of colors.
+ *
+*/
+
+
+// This function returns the maximum value of 3 values
+double getMax(double r, double g, double b);
+
+// This function converts from an RGB color model to CMYK
+int rgbToCMYK(int r, int g, int b, double *c, double *m, double *y, double *k);
+
+// This function converts from a CMYK color model to RGB
+int cmykToRGB(double c, double m, double y, double k, int *r, int *g, int *b);
+
+
