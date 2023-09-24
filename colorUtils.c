@@ -1,10 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-// FIXME: Remove all useless comments https://github.com/cbourke/ComputerScienceI/tree/master/hacks/hack6.0
-//TODO: Don't forget to write more test cases in utilsTester.c
-//TODO: Make sure error codes are being used correctly (currently using 1)
 
 
 double getMax(double r, double g, double b){
@@ -16,14 +13,12 @@ double getMax(double r, double g, double b){
 
 int rgbToCMYK(int r, int g, int b, double *c, double *m, double *y, double *k){
 
-
     if(c == NULL || m == NULL || y == NULL || k == NULL){
         return 1;
     }
     if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255){
         return 1;
     }
-
 
     // Check for division by zero (r,g,b) = (0,0,0). In this case, CMYK values are (0,0,0,1)
     if(r == 0 && g == 0 && b == 0){
@@ -49,13 +44,12 @@ int rgbToCMYK(int r, int g, int b, double *c, double *m, double *y, double *k){
     return 0;
 }
 
-
 int cmykToRGB(double c, double m, double y, double k, int *r, int *g, int *b){
 
     if(r == NULL || g == NULL || b == NULL){
         return 1;
     }
-    if (*r < 0 || *r > 255 || *g < 0 || *g > 255 || *b < 0 || *b > 255){
+    if (c < 0 || c > 1 || m < 0 || m > 1 || y < 0 || y > 1 || k < 0 || k > 1){
         return 1;
     }
 

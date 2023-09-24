@@ -1,7 +1,7 @@
 /**
  * Author: Berenice Daly
  *         bdaly5@unl.edu
- * Date: 9/20/2023
+ * Date:   9/23/2023
  *
  *
  * This is a collection of unit tests and
@@ -146,7 +146,7 @@ static void testCmykToRgbNull(void **state) {
  * This function tests cmykToRGB's error handling of out-of-range
  * values for the c, m, y, k parameters, each tested independently.
  * two values are tested each: a less-than-zero value and a value
- * greater than 255.
+ * greater than 1.
  */
 static void testCmykToRgbOutOfBounds(void **state) {
     int r, g, b;
@@ -252,6 +252,11 @@ int main(int argc, char **argv) {
     double powerpointOrange[] = {209,  69,  36,    0, 0.67, 0.83, 0.18};
     double spotifyGreen[] =     { 30, 214,  96, 0.86,    0, 0.55, 0.16};
 
+    double codePostGreen[] =    {71, 204, 151,  .65, 0, .26, .20};
+    double piazaPeriwinkle[] =  {58, 115, 161,  .64, .29, 0, .37};
+    double canvasGray[] =       {46, 60, 70,    .34, .14, 0, .73};
+    double pineappleYellow[] =  {243, 214, 79,  0, .12, .67, .05};
+
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(testRandomCyclicalEquality),
             cmocka_unit_test(testRgbToCmykNull),
@@ -277,7 +282,11 @@ int main(int argc, char **argv) {
             cmocka_unit_test_prestate(testBidirectionalValues, &twitterBlue),
             cmocka_unit_test_prestate(testBidirectionalValues, &instagramPink),
             cmocka_unit_test_prestate(testBidirectionalValues, &powerpointOrange),
-            cmocka_unit_test_prestate(testBidirectionalValues, &spotifyGreen)
+            cmocka_unit_test_prestate(testBidirectionalValues, &spotifyGreen),
+            cmocka_unit_test_prestate(testBidirectionalValues, &codePostGreen),
+            cmocka_unit_test_prestate(testBidirectionalValues, &piazaPeriwinkle),
+            cmocka_unit_test_prestate(testBidirectionalValues, &canvasGray),
+            cmocka_unit_test_prestate(testBidirectionalValues, &pineappleYellow)
   };
 
   return cmocka_run_group_tests(tests, NULL, NULL);
